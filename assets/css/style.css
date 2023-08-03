@@ -1,7 +1,27 @@
+:root {
+  --cor-primaria: #e21;
+  --cor-primaria-escura: #900;
+  --fundo-1: #f7f7f7;
+  --fundo-2: #ffffff;
+  --texto: #000000;
+  --subtitulo: rgba(0, 0, 0, 0.2);
+  --onda: url("../img/onda.svg");
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fundo-1: #111111;
+    --fundo-2: #000000;
+    --texto: #ffffff;
+    --subtitulo: rgba(255, 255, 255, 0.2);
+    --onda: url("../img/onda-escura.svg");
+  }
+}
 body {
   margin: 0px;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #f7f7f7;
+  background-color: var(--fundo-1);
+  color: var(--texto);
 }
 h1,
 h2,
@@ -30,7 +50,6 @@ img {
 }
 a {
   text-decoration: none;
-  color: black;
 }
 .logo {
   display: flex;
@@ -60,18 +79,25 @@ a {
   justify-content: center;
   flex-wrap: wrap;
 }
+.menu a{
+  display: block;
+}
+.menu a:hover {
+  border-color: var(--cor-primaria);
+}
 
 .menu-itens {
-  background-color: white;
+  background: var(--fundo-2);
+  color: var(--texto);
   padding: 15px 30px;
-  border-radius: 10px;
+  border-radius: 6px;
   border: 1px solid transparent;
+  transition: 0.3s;
 }
 
 .menu-itens:hover {
-  background: linear-gradient(white, rgba(128, 128, 128, 0.02));
   transition: 0.3;
-  border: 1px solid red;
+  border-color: var(--cor-primaria);
 }
 
 .container {
@@ -99,7 +125,7 @@ a {
 
 .inicio {
   position: relative;
-  background-color: white;
+  background: var(--fundo-2);
   display: grid;
   align-content: center;
   gap: 20px;
@@ -114,23 +140,27 @@ a {
   position: absolute;
   width: 60px;
   height: 4px;
-  background-color: red;
+  background: var(--cor-primaria);
   z-index: 3;
   top: 30px;
   right: -30px;
 }
+
+.img{
+  object-fit: cover;
+  height: 100%;
+}
+
 .inicio a {
-  background-color: #ee2211;
+  background: var(--cor-primaria);
   padding: 15px 30px;
-  color: white;
-  border-radius: 10px;
+  color: #ffffff;
+  border-radius: 6px;
   border: 1px solid transparent;
+  transition: 0.5s;
 }
 .inicio a:hover {
-  background: linear-gradient(white, rgba(255, 0, 0, 0.411));
-  color: black;
-  border: 1px solid rgba(255, 0, 0, 0.2);
-  border-bottom: 1px solid red;
+  background: var(--cor-primaria-escura);
   transition: 0.7s;
 }
 .inicio h1 {
@@ -153,36 +183,37 @@ a {
   width: 100%;
   z-index: -1;
   /* background-color: red; */
-  background-image: url("../img/onda.svg");
 }
 
 .bike-itens {
   font-size: 4rem;
   /* font-size: 64px; */
-  color: #c6c6c6;
+  color: var(--subtitulo);
   text-align: right;
-  align-self: end;
+  align-self: center;
   text-transform: uppercase;
+  background-image: var(--onda);
 }
 
 .vantagens {
   /* display: grid; */
   /* gap: 20px; */
   padding: 40px;
-  background-color: white;
+  background: var(--fundo-2);
 }
 .vantagens-itens {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 10px 20px;
   padding: 20px;
-  border: 2px solid transparent;
+  border-left: 1px solid transparent;
 }
 .vantagens-itens:hover {
-  border-left: 2px solid red;
+  border-left: 1px solid;
+  border-color: var(--cor-primaria);
 }
 .vantagens-itens:nth-child(odd) {
-  background-color: #f7f7f7;
+  background: var(--fundo-1);
 }
 .vantagens-itens p {
   grid-column: 2;
@@ -191,7 +222,7 @@ a {
 footer {
   display: flex;
   padding: 40px;
-  background-color: white;
+  background: var(--fundo-2);
   /* text-align: center; */
   justify-content: center;
 }
